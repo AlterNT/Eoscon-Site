@@ -1,0 +1,21 @@
+.splash {
+  display: flex;
+
+  padding: 2rem;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  display: flex;
+  width: 80%;
+  padding: 2rem;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--panel);
+}

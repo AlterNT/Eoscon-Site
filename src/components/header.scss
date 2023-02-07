@@ -1,0 +1,63 @@
+header {
+  position: relative;
+  display: flex;
+  height: 3.5rem;
+  width: 100%;
+
+  & > A {
+    display: flex;
+    width: 10rem;
+    min-width: 7.5rem;
+
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+    text-decoration-color: transparent;
+    text-transform: capitalize;
+
+    transition: all 0.2s;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--accent-active);
+      text-underline-offset: 0.49rem;
+      text-decoration-thickness: 0.1rem;
+    }
+
+    &:active {
+      text-decoration-color: white;
+    }
+  }
+
+  .account {
+    display: flex;
+    margin-left: auto;
+
+    background-color: var(--accent);
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      margin-left: -3.5rem;
+      height: 3.5rem;
+      width: 3.5rem;
+
+      background-color: var(--accent);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: calc(50% + 0.8rem);
+  height: 0.2rem;
+
+  background-color: var(--accent);
+  opacity: 0;
+
+  transition: all 0.2s;
+}
