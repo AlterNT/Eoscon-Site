@@ -1,3 +1,3 @@
 export default function Map() {
-  return <>Map</>
+  return <main>Map</main>
 }
