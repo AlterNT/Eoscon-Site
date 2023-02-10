@@ -35,6 +35,16 @@ export default function Header() {
     }
   })
 
+  // Update indicater on page resize.
+  onMount(() => {
+    addEventListener('resize', () => {
+      const currentLink = links.find((link) =>
+        location.pathname.includes(link.getAttribute('href'))
+      )
+      setIndicator(currentLink, indicator)
+    })
+  })
+
   return (
     <header class='panel'>
       <A href='/'>EOSCON</A>
