@@ -1,5 +1,5 @@
 header {
-  position: relative;
+  position: absolute;
   display: flex;
   height: 4rem;
   width: 100%;
@@ -12,7 +12,6 @@ header {
     justify-content: center;
     align-items: center;
 
-    font-size: larger;
     color: var(--text);
     text-decoration: none;
     text-decoration-color: transparent;

@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <header class='panel'>
       <A href='/'>
-        <img src='/images/EOSCON LOGO.svg' alt='EOSCON' />
+        <img src='/images/EOSCON LOGO.svg' alt='EOSCON' draggable='false' />
       </A>
       {indicator}
       <For each={links}>{(item) => item}</For>

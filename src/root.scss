@@ -5,6 +5,7 @@ body {
   margin: 0;
 
   font-family: 'Lexend', sans-serif;
+  font-size: larger;
   background-color: var(--background);
   color: var(--text);
 }
@@ -21,4 +22,68 @@ main {
 .panel {
   background-color: var(--panel);
   backdrop-filter: blur(0.1rem);
+}
+
+button {
+  display: flex;
+  position: relative;
+
+  height: 3rem;
+  margin: 0.5rem;
+  padding: 0rem 3rem;
+
+  justify-content: center;
+  align-items: center;
+
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text);
+
+  background-color: var(--panel);
+
+  box-sizing: border-box;
+  border: 0.2rem solid var(--accent);
+  cursor: pointer;
+  user-select: none;
+
+  transition: all 0.2s;
+
+  &::after {
+    content: '';
+    display: flex;
+    position: absolute;
+
+    left: calc(100% - 2.5rem);
+
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: transparent;
+
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    border: 0.2rem solid var(--accent-hover);
+    padding-left: 2.5rem;
+    padding-right: 3.5rem;
+
+    text-decoration: none;
+
+    &::after {
+      left: calc(100% - 3rem);
+      background-color: var(--text);
+    }
+  }
+
+  &:active {
+    border: 0.2rem solid var(--accent-active);
+    transition: all 0s;
+
+    &::after {
+      background-color: transparent;
+      transition: all 0s;
+    }
+  }
 }

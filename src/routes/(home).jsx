@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <div class='splash'>
-        <h1>EOSCON 3</h1>
+        <img src='images/EOSCON LOGO.svg' alt='EOSCON' draggable='false' />
         <Countdown />
         <Statistics />
         <button>Register</button>
