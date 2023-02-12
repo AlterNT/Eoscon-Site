@@ -39,6 +39,9 @@ export default function Background() {
 
     scene.add(line)
     renderer.render(scene, camera)
+
+    // Rescale as needed.
+    addEventListener('resize', () => {})
   })
   return canvas
 }
