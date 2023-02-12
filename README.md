@@ -15,7 +15,8 @@ This is still in very early stages, so many features may not function.
 ## Prerequisites
 
 - Any standard Linux Distro that supports the following:
-- BunJS (See https://bun.sh/ for installation)
+- BunJS >= 0.5.7 (See https://bun.sh/ for installation.)
+- EdgeDB >= 2.9 (See https://www.edgedb.com/install for installation.)
 
 ## Installation
 
