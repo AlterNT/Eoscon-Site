@@ -26,12 +26,12 @@ export default function Background() {
 
     const starmat = new LineMaterial({
       color: 0xffffff,
-      linewidth: 0.05,
+      linewidth: 0.1,
       worldUnits: true,
     })
 
     const geo = new LineGeometry()
-    geo.setPositions([0, 0, 0, 0, 0.001, 0])
+    geo.setPositions([0, 0, 0, 0, 0.0001, 0])
 
     const line = new Line2(geo, starmat)
     line.computeLineDistances()

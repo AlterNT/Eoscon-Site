@@ -1,10 +1,10 @@
 header {
   position: relative;
   display: flex;
-  height: 3.5rem;
+  height: 4rem;
   width: 100%;
 
-  & > A {
+  > A {
     display: flex;
     width: 10rem;
     min-width: 7.5rem;
@@ -12,7 +12,8 @@ header {
     justify-content: center;
     align-items: center;
 
-    color: white;
+    font-size: larger;
+    color: var(--text);
     text-decoration: none;
     text-decoration-color: transparent;
     text-transform: capitalize;
@@ -22,39 +23,48 @@ header {
     &:hover {
       text-decoration: underline;
       text-decoration-color: var(--accent-active);
-      text-underline-offset: 0.49rem;
-      text-decoration-thickness: 0.1rem;
+      text-underline-offset: 0.55rem;
+      text-decoration-thickness: 0.2rem;
     }
 
     &:active {
-      text-decoration-color: white;
+      text-decoration-color: var(--text);
       transition: all 0s;
     }
   }
 
-  .account {
-    display: flex;
+  > a:first-of-type {
+    width: 12rem;
+
+    & > img {
+      padding: 1rem;
+    }
+  }
+
+  > a:last-of-type {
     margin-left: auto;
+    padding-left: 4rem;
 
     background-color: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 4rem 100%);
 
-    &:after {
-      content: '';
-      position: absolute;
-      display: block;
-      margin-left: -3.5rem;
-      height: 3.5rem;
-      width: 3.5rem;
+    color: black;
 
-      background-color: var(--accent);
-      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    &:hover {
+      background-color: var(--accent-hover);
+
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: var(--accent-active);
     }
   }
 }
 
 .indicator {
   position: absolute;
-  top: calc(50% + 0.8rem);
+  top: calc(50% + 1rem);
   height: 0.2rem;
 
   background-color: var(--accent);

@@ -47,12 +47,12 @@ export default function Header() {
 
   return (
     <header class='panel'>
-      <A href='/'>EOSCON</A>
+      <A href='/'>
+        <img src='/images/EOSCON LOGO.svg' alt='EOSCON' />
+      </A>
       {indicator}
       <For each={links}>{(item) => item}</For>
-      <div class='account'>
-        <A href='/login'>Login</A>
-      </div>
+      <A href='/login'>Login</A>
     </header>
   )
 }
