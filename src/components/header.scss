@@ -38,6 +38,15 @@ header {
     & > img {
       padding: 1rem;
     }
+
+    &:hover {
+      filter: brightness(85%);
+    }
+
+    &:active {
+      transition: all 0s;
+      filter: brightness(60%);
+    }
   }
 
   > a:last-of-type {

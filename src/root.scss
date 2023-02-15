@@ -40,6 +40,7 @@ main {
   color: var(--text);
 
   background-color: var(--panel);
+  backdrop-filter: blur(0.1rem);
 
   box-sizing: border-box;
   border: 0.2rem solid var(--accent);
