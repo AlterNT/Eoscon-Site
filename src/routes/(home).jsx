@@ -11,7 +11,7 @@ export default function Home() {
         <img src='images/EOSCON LOGO.svg' alt='EOSCON' draggable='false' />
         <Countdown />
         <Statistics />
-        <button>Register</button>
+        <button class='button'>Register</button>
       </div>
       <div class='panel about'>
         <h1>About</h1>

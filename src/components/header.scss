@@ -21,13 +21,13 @@ header {
 
     &:hover {
       text-decoration: underline;
-      text-decoration-color: var(--accent-active);
+      text-decoration-color: var(--secondary);
       text-underline-offset: 0.55rem;
       text-decoration-thickness: 0.2rem;
     }
 
     &:active {
-      text-decoration-color: var(--text);
+      text-decoration-color: var(--accent-active);
       transition: all 0s;
     }
   }
@@ -45,12 +45,14 @@ header {
     padding-left: 4rem;
 
     background-color: var(--accent);
+
     clip-path: polygon(0 0, 100% 0, 100% 100%, 4rem 100%);
 
     color: black;
 
     &:hover {
-      background-color: var(--accent-hover);
+      background-color: var(--secondary);
+      padding-left: 6rem;
 
       text-decoration: none;
     }

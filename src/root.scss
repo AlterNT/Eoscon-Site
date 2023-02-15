@@ -24,7 +24,7 @@ main {
   backdrop-filter: blur(0.1rem);
 }
 
-button {
+.button {
   display: flex;
   position: relative;
 
@@ -43,6 +43,8 @@ button {
 
   box-sizing: border-box;
   border: 0.2rem solid var(--accent);
+  border-image-source: linear-gradient(to left, var(--accent), var(--accent));
+  border-image-slice: 1;
   cursor: pointer;
   user-select: none;
 
@@ -54,7 +56,6 @@ button {
     position: absolute;
 
     left: calc(100% - 2.5rem);
-
     clip-path: polygon(0 0, 100% 50%, 0 100%);
 
     width: 0.75rem;
@@ -65,7 +66,9 @@ button {
   }
 
   &:hover {
-    border: 0.2rem solid var(--accent-hover);
+    border: 0.2rem solid var(--secondary);
+    animation-name: border-gradient-pan;
+    animation-duration: 0.2s;
     padding-left: 2.5rem;
     padding-right: 3.5rem;
 
@@ -76,14 +79,31 @@ button {
       background-color: var(--text);
     }
   }
-
   &:active {
     border: 0.2rem solid var(--accent-active);
     transition: all 0s;
+  }
+}
 
-    &::after {
-      background-color: transparent;
-      transition: all 0s;
-    }
+@keyframes border-gradient-pan {
+  0% {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(225deg, var(--accent), var(--accent));
+  }
+  50% {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      225deg,
+      var(--secondary),
+      var(--accent)
+    );
+  }
+  100% {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      225deg,
+      var(--secondary),
+      var(--secondary)
+    );
   }
 }
