@@ -41,7 +41,9 @@ export default function Header() {
       const currentLink = links.find((link) =>
         location.pathname.includes(link.getAttribute('href'))
       )
-      setIndicator(currentLink, indicator)
+      if (currentLink != undefined) {
+        setIndicator(currentLink, indicator)
+      }
     })
   })
 

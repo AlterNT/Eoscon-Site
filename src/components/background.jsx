@@ -40,8 +40,13 @@ export default function Background() {
     scene.add(line)
     renderer.render(scene, camera)
 
-    // Rescale as needed.
-    addEventListener('resize', () => {})
+    // Rescale updates.
+    addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight, false)
+      camera.aspect = window.innerWidth / window.innerHeight
+      camera.updateProjectionMatrix()
+      renderer.render(scene, camera)
+    })
   })
   return canvas
 }
