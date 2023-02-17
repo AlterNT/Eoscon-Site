@@ -76,7 +76,8 @@ main {
     transition: all 0.2s;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     border: 0.2rem solid var(--secondary);
     animation-name: border-gradient-pan;
     animation-duration: 0.2s;
