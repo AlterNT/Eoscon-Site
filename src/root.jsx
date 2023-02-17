@@ -34,7 +34,7 @@ export default function Root() {
     </Body>
   )
 
-  const SMOOTHING = 0.2
+  const SMOOTHING = 0.15
 
   let currentScroll = 0
 
