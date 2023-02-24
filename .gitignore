@@ -1,27 +1,9 @@
-
 dist
 .solid
 .output
-.vercel
-.netlify
-netlify
 
 # dependencies
 /node_modules
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-*.launch
-.settings/
-
-# Temp
-gitignore
-
-# System Files
-.DS_Store
-Thumbs.db
-
-# Database Migrations
-dbschema/migrations
+.vscode
