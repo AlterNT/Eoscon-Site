@@ -1,11 +1,11 @@
 @import url('./globals.css');
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
 
 body {
   margin: 0;
   height: fit-content;
 
   font-family: 'Lexend', sans-serif;
+  font-display: block;
   font-size: larger;
   background-color: var(--background);
   color: var(--text);
