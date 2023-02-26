@@ -1,6 +1,7 @@
 {
   "name": "Eoscon-Site",
   "scripts": {
+    "db": "",
     "dev": "solid-start dev",
     "build": "solid-start build",
     "start": "solid-start start"
