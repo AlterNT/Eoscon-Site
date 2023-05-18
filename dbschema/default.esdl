@@ -23,7 +23,7 @@ module default {
   }
 
   type BrandExhibit extending Exhibit {
-    required multi link owners -> User;
+    required multi link owner -> User;
   }
 
   type CompanyExhibit extending Exhibit {
@@ -38,19 +38,52 @@ module default {
       default := false;
     };
 
-    multi link auth -> Authentication;
-    link contact -> Contact;
+    property image -> str;
+    property email -> str {
+      constraint exclusive;
+    };
+
+    property emailVerified -> datetime;
+
+    link contact -> Contact {
+      on source delete delete target;
+    };
     link company -> Company;
   }
 
-  scalar type Authenticator extending enum<
-    'Steam',
-    'Discord'
-  >;
+  type Account {
+    property account_type -> str;
+    property provider -> str;
+    property providerAccountId -> str;
+    property refresh_token -> str;
+    property access_token -> str;
+    property expires_at -> int32; # UNIX timestamp
+    property token_type -> str;
+    property scope -> str;
+    property id_token -> str;
+    property session_state -> str;
 
-  type Authentication {
-    required property service -> Authenticator;
-    required property token -> str;
+    required link user -> User {
+      on target delete delete source;
+    };
+    constraint exclusive on ((.provider, .providerAccountId));
+  }
+
+  type Session {
+    property expires -> datetime;
+    property sessionToken -> str {
+      constraint exclusive;
+    };
+
+    required link user -> User {
+      on target delete delete source;
+    };
+  }
+
+  type VerificationToken {
+    property identifier -> str;
+    property token -> str;
+    property expires -> datetime;
   }
 
   type Company {
@@ -66,26 +99,11 @@ module default {
     multi link officers -> User;
   }
 
-  scalar type ShipTags extending enum<
-    'Asteroid Miner',
-    'Moon Miner',
-    'Hauler',
-    'Salvager',
-    'Tanker',
-    'Torpedo Boat',
-    'Navigation Logger',
-    'Long Range',
-    'Armored',
-    'Fighter',
-    'Scooter',
-    'Multirole'
-  >;
-
   type Ship {
     required property name -> str {
       constraint max_len_value(32);
     };
-    required multi property tags -> ShipTags;
+    required multi property tags -> str;
     property mass -> int32 {
       constraint min_value(0);
     };
@@ -143,9 +161,6 @@ module default {
   }
 
   type Contact {
-    property discord_name -> str {
-      constraint regexp(r'^[^\s](?!everyone#|here#)(((?!discord|```|[@#:]).)*)[^\s]#\d{4}');
-    };
     property discord_server -> str {
       constraint regexp(r'https://discord.gg/[a-zA-Z\d]+');
     };
