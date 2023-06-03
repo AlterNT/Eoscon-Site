@@ -57,7 +57,7 @@ module default {
     property providerAccountId -> str;
     property refresh_token -> str;
     property access_token -> str;
-    property expires_at -> int32; # UNIX timestamp
+    property expires_at -> int64; # UNIX timestamp
     property token_type -> str;
     property scope -> str;
     property id_token -> str;

@@ -7,3 +7,11 @@ dist
 
 # IDEs and editors
 .vscode
+
+# Environment variables
+.env
+dbschema/edgeql-js
+
+# Database
+dbschema/migrations
+src/util/queries*

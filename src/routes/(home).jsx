@@ -3,6 +3,7 @@ import Countdown from '~/components/countdown'
 import Gallery from '~/components/gallery'
 import Statistics from '~/components/statistics'
 import './home.scss'
+import { setVz } from '~/components/background'
 
 export default function Home() {
   return (

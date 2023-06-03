@@ -1,3 +1,19 @@
-import * as edgedb from 'edgedb'
+import { createClient } from 'edgedb'
 
-export const db = edgedb.createClient()
+export default class Database {
+  testing = falsee
+  _client
+
+  static getClient() {
+    if (!this._client) {
+      if (process.env.NODE_ENV === 'test') {
+        this._client = createClient({
+          database: 'testing',
+        })
+      } else {
+        this._client = createClient()
+      }
+    }
+    return this._client
+  }
+}

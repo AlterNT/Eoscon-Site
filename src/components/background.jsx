@@ -1,8 +1,8 @@
 import { onMount } from 'solid-js'
 import * as THREE from 'three'
-import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2'
-import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry'
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial'
+import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js'
+import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js'
+import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js'
 import './background.scss'
 
 export default function Background() {

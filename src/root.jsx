@@ -15,7 +15,7 @@ import {
 import Header from './components/header'
 import Background from './components/background'
 import './root.scss'
-import { lerp } from 'three/src/math/MathUtils'
+import { lerp } from 'three/src/math/MathUtils.js'
 
 export default function Root() {
   const wrapper = (

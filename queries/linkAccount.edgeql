@@ -5,7 +5,7 @@ select (
     providerAccountId := <str>$providerAccountId,
     refresh_token := <str>$refresh_token,
     access_token := <str>$access_token,
-    expires_at := <int32>$expires_at,
+    expires_at := <int64>$expires_at,
     token_type := <str>$token_type,
     scope := <str>$scope,
     id_token := <str>$id_token,
@@ -17,6 +17,7 @@ select (
     )
   }
 ) {
+  id,
   account_type,
   provider,
   providerAccountId,

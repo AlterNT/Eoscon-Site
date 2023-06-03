@@ -7,7 +7,7 @@ export default function Login() {
   onMount(() => {
     discord.href = `https://discord.com/api/oauth2/authorize?client_id=1078192080364507246&redirect_uri=${encodeURIComponent(
       window.location.origin
-    )}&response_type=code&scope=identify`
+    )}/auth/discord&response_type=code&scope=identify`
   })
 
   return (

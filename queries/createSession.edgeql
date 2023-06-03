@@ -9,6 +9,9 @@ select (
     )
   }
 ) {
+  user: {
+    id
+  },
   expires,
   sessionToken
 }
