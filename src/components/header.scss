@@ -4,7 +4,8 @@ header {
   height: 4rem;
   width: 100%;
 
-  > A {
+  > A,
+  > button {
     display: flex;
     width: 10rem;
     min-width: 7.5rem;
@@ -51,12 +52,15 @@ header {
     }
   }
 
-  > a:last-of-type {
+  > button {
     margin-left: auto;
-    padding-left: 4rem;
+    padding: 0 4rem 0 8rem;
 
+    cursor: pointer;
+    font: inherit;
     background-color: var(--accent);
 
+    border: none;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 4rem 100%);
 
     color: black;
@@ -64,7 +68,9 @@ header {
     &:hover,
     &:focus-visible {
       background-color: var(--secondary);
-      padding-left: 6rem;
+
+      padding-left: 10rem;
+      padding-right: 6rem;
 
       text-decoration: none;
     }

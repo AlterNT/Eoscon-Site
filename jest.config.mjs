@@ -1,4 +1,5 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
-  coverageProvider: 'v8',
-  setupFiles: ['dotenv/config'],
+  preset: 'ts-jest',
+  testEnvironment: 'node',
 }

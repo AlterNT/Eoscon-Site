@@ -17,6 +17,19 @@ import Background from './components/background'
 import './root.scss'
 import { lerp } from 'three/src/math/MathUtils.js'
 
+export interface SmoothScrollEvent extends Event {
+  detail: {
+    y: number
+    v: number
+  }
+}
+
+declare global {
+  interface WindowEventMap {
+    smoothscroll: SmoothScrollEvent
+  }
+}
+
 export default function Root() {
   const wrapper = (
     <div class='wrapper'>
@@ -26,13 +39,13 @@ export default function Root() {
       </Routes>
       <Scripts />
     </div>
-  )
+  ) as HTMLDivElement
   const body = (
     <Body>
       <Background />
       {wrapper}
     </Body>
-  )
+  ) as HTMLBodyElement
 
   const SMOOTHING = 0.15
 
@@ -86,7 +99,11 @@ export default function Root() {
         <Meta charset='utf-8' />
         <Meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossorigin=''
+        />
         <link
           href='https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap'
           rel='stylesheet'

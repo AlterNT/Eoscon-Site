@@ -1,11 +1,12 @@
 import { faker } from '@faker-js/faker'
-import EdgeDBAdapter from './auth'
+import { EdgeDBAdapter } from './auth'
 import Database from './database'
 import { clearDatabase } from './queries'
+import { describe, test, afterEach, beforeEach, expect } from '@jest/globals'
+import { Adapter } from '@auth/core/adapters'
 
 describe('EdgeDB Database Adapter', () => {
-  /**@type {import("@auth/core/adapters").Adapter} */
-  let adapter
+  let adapter: Required<Adapter>
 
   beforeEach(() => {
     adapter = EdgeDBAdapter()
@@ -19,7 +20,10 @@ describe('EdgeDB Database Adapter', () => {
   })
 
   const randomAccount = () => ({
-    type: 'oauth',
+    type: faker.helpers.arrayElement(['email', 'oidc', 'oauth']) as
+      | 'email'
+      | 'oidc'
+      | 'oauth',
     provider: faker.company.name(),
     providerAccountId: faker.string.uuid(),
     refresh_token: faker.string.alphanumeric(10),
@@ -89,7 +93,7 @@ describe('EdgeDB Database Adapter', () => {
 
       const dbuser = await adapter.createUser(user1)
       expect(
-        await adapter.updateUser({ ...user2, id: dbuser.id, is_admin: false })
+        await adapter.updateUser({ ...user2, id: dbuser.id })
       ).toMatchObject(user2)
     })
 
@@ -100,9 +104,7 @@ describe('EdgeDB Database Adapter', () => {
       let dbUser = await adapter.createUser(user)
 
       expect(await adapter.deleteUser(dbUser.id)).toMatchObject(user)
-      await expect(
-        async () => await adapter.deleteUser(dbUser.id)
-      ).rejects.toThrow()
+      expect(await adapter.deleteUser(dbUser.id)).toBeNull()
 
       dbUser = await adapter.createUser(user)
       await adapter.linkAccount({
@@ -111,16 +113,13 @@ describe('EdgeDB Database Adapter', () => {
       })
 
       expect(await adapter.deleteUser(dbUser.id)).toMatchObject(user)
-      await expect(
-        async () =>
-          await adapter.unlinkAccount({
-            provider: account.provider,
-            providerAccountId: account.providerAccountId,
-          })
-      ).rejects.toThrow()
-      await expect(
-        async () => await adapter.deleteUser(dbUser.id)
-      ).rejects.toThrow()
+      expect(
+        await adapter.unlinkAccount({
+          provider: account.provider,
+          providerAccountId: account.providerAccountId,
+        })
+      ).toBeUndefined()
+      expect(await adapter.deleteUser(dbUser.id)).toBeNull()
     })
   })
 
@@ -135,7 +134,7 @@ describe('EdgeDB Database Adapter', () => {
           userId: dbUser.id,
           ...account,
         })
-      ).toMatchObject(account)
+      ).toBeUndefined()
     })
 
     test('Unlink Account', async () => {
@@ -152,7 +151,7 @@ describe('EdgeDB Database Adapter', () => {
           provider: account.provider,
           providerAccountId: account.providerAccountId,
         })
-      ).toMatchObject(account)
+      ).toBeUndefined()
     })
   })
 
@@ -229,7 +228,7 @@ describe('EdgeDB Database Adapter', () => {
       const { expires, ...params } = token
 
       expect(await adapter.useVerificationToken(params)).toMatchObject(token)
-      expect(await adapter.useVerificationToken(params)).toBeUndefined()
+      expect(await adapter.useVerificationToken(params)).toBeNull()
     })
   })
 

@@ -4,9 +4,10 @@ import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js'
 import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js'
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js'
 import './background.scss'
+import { SmoothScrollEvent } from '~/root'
 
 export default function Background() {
-  const canvas = <canvas></canvas>
+  const canvas = (<canvas></canvas>) as HTMLCanvasElement
 
   onMount(async () => {
     // Parameters.
@@ -126,7 +127,7 @@ export default function Background() {
     })
 
     // Capture scroll events.
-    addEventListener('smoothscroll', (e) => {
+    addEventListener('smoothscroll', (e: SmoothScrollEvent) => {
       vy = e.detail.v
       requestAnimationFrame(render)
     })
