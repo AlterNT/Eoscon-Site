@@ -2,11 +2,11 @@ select (
   update User
   filter .id = <uuid>$id
   set {
-    name := <str>$name,
-    image := <str>$image,
-    email := <str>$email,
-    emailVerified := <datetime>$emailVerified,
-    is_admin := <bool>$is_admin
+    name := <optional str>$name,
+    image := <optional str>$image,
+    email := <optional str>$email,
+    emailVerified := <optional datetime>$emailVerified,
+    is_admin := <optional bool>$is_admin
   }
 ) {
   id,

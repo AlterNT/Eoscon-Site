@@ -39,7 +39,7 @@ module default {
     };
 
     property image -> str;
-    property email -> str {
+    required property email -> str {
       constraint exclusive;
     };
 
@@ -52,9 +52,9 @@ module default {
   }
 
   type Account {
-    property account_type -> str;
-    property provider -> str;
-    property providerAccountId -> str;
+    required property account_type -> str;
+    required property provider -> str;
+    required property providerAccountId -> str;
     property refresh_token -> str;
     property access_token -> str;
     property expires_at -> int64; # UNIX timestamp
@@ -70,8 +70,8 @@ module default {
   }
 
   type Session {
-    property expires -> datetime;
-    property sessionToken -> str {
+    required property expires -> datetime;
+    required property sessionToken -> str {
       constraint exclusive;
     };
 
@@ -81,9 +81,9 @@ module default {
   }
 
   type VerificationToken {
-    property identifier -> str;
-    property token -> str;
-    property expires -> datetime;
+    required property identifier -> str;
+    required property token -> str;
+    required property expires -> datetime;
   }
 
   type Company {

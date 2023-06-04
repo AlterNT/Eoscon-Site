@@ -1,11 +1,14 @@
 select (
-  update Session
-  filter .sessionToken = <str>$sessionToken
+  with session := (
+    select Session
+    filter .sessionToken = <str>$sessionToken
+  )
+  update session
   set {
-    expires := <datetime>$expires,
+    expires := <optional datetime>$expires ?? session.expires,
     user :=  (
       select User
-      filter .id = <uuid>$userId
+      filter .id = <optional uuid>$userId ?? session.user.id
     )
   }
 ) {

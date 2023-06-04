@@ -6,3 +6,4 @@ select User {
   emailVerified,
   is_admin
 } filter (.<user[is Account].providerAccountId, .<user[is Account].provider) = (<str>$providerAccountId, <str>$provider)
+limit 1

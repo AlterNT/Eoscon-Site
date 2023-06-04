@@ -3,13 +3,13 @@ select (
     account_type := <str>$account_type,
     provider := <str>$provider,
     providerAccountId := <str>$providerAccountId,
-    refresh_token := <str>$refresh_token,
-    access_token := <str>$access_token,
-    expires_at := <int64>$expires_at,
-    token_type := <str>$token_type,
-    scope := <str>$scope,
-    id_token := <str>$id_token,
-    session_state := <str>$session_state,
+    refresh_token := <optional str>$refresh_token,
+    access_token := <optional str>$access_token,
+    expires_at := <optional int64>$expires_at,
+    token_type := <optional str>$token_type,
+    scope := <optional str>$scope,
+    id_token := <optional str>$id_token,
+    session_state := <optional str>$session_state,
 
     user := (
       select User

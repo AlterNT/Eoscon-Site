@@ -6,3 +6,4 @@ select (
   token,
   expires
 }
+limit 1

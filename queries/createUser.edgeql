@@ -1,9 +1,9 @@
 select (
   insert User {
-    name := <str>$name,
-    image := <str>$image,
+    name := <optional str>$name,
+    image := <optional str>$image,
     email := <str>$email,
-    emailVerified := <datetime>$emailVerified,
+    emailVerified := <optional datetime>$emailVerified,
   }
 ) {
   id,
