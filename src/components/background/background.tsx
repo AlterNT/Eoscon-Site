@@ -1,10 +1,10 @@
 import { onMount } from 'solid-js'
 import * as THREE from 'three'
+import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js'
 import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js'
 import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js'
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js'
-import './background.scss'
 import { SmoothScrollEvent } from '~/root'
+import './background.scss'
 
 export default function Background() {
   const canvas = (<canvas></canvas>) as HTMLCanvasElement

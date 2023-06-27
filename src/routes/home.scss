@@ -9,20 +9,8 @@
   justify-content: left;
   align-items: center;
 
-  > img {
+  > h1 {
     margin: 1rem 0rem 5rem;
     width: 60%;
   }
-}
-
-.about {
-  display: flex;
-  width: 80%;
-  padding: 2rem;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: var(--panel);
 }

@@ -1,0 +1,13 @@
+.panel {
+  display: flex;
+  width: 80%;
+  padding: 2rem;
+  margin: 4rem;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--panel);
+  backdrop-filter: blur(0.1rem);
+}

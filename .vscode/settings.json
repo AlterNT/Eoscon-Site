@@ -1,4 +1,6 @@
 {
-  "jest.jestCommandLine": "",
-  "jest.coverageFormatter": "DefaultFormatter"
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
 }

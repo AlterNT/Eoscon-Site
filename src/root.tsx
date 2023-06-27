@@ -12,8 +12,8 @@ import {
   Scripts,
   Title,
 } from 'solid-start'
-import Header from './components/header'
-import Background from './components/background'
+import Header from './components/header/header'
+import Background from './components/background/background'
 import './root.scss'
 import { lerp } from 'three/src/math/MathUtils.js'
 

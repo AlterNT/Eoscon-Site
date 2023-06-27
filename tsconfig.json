@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "preserveSymlinks": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "target": "ESNext",

@@ -1,4 +1,4 @@
-@import url('./globals.css');
+@import url('./globals.scss');
 
 body {
   margin: 0;
@@ -18,7 +18,8 @@ body {
 
 main {
   display: flex;
-  width: 100%;
+  width: calc(100% - 8rem);
+  padding: 4rem;
 
   flex-direction: column;
   justify-content: center;
@@ -27,11 +28,6 @@ main {
   translate: 0 -var(--scroll);
 
   transition: translate 2s;
-}
-
-.panel {
-  background-color: var(--panel);
-  backdrop-filter: blur(0.1rem);
 }
 
 .button {

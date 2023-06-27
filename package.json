@@ -14,7 +14,9 @@
   "type": "module",
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
+    "@jest/globals": "^29.5.0",
     "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
     "@types/three": "^0.152.1",
     "solid-start-node": "^0.2.23",
     "ts-jest": "^29.1.0",
@@ -23,7 +25,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.8.1",
-    "@solid-auth/next": "^0.0.23",
+    "@auth/solid-start": "^0.1.1",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.8.2",
     "dotenv": "^16.0.3",

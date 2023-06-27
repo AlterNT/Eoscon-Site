@@ -1,6 +1,9 @@
 import * as queries from './queries'
 import Database from './database'
 import { Adapter } from '@auth/core/adapters'
+import { createServerData$ } from 'solid-start/server'
+import { getSession } from '@auth/solid-start'
+import { authOpts } from '~/routes/api/auth/[...solidauth]'
 
 export function EdgeDBAdapter(): Required<Adapter> {
   return {
@@ -187,6 +190,11 @@ export function EdgeDBAdapter(): Required<Adapter> {
   }
 }
 
-type Valuable<T> = {
-  [K in keyof T as T[K] extends null | undefined ? never : K]: T[K]
+export const useSession = () => {
+  return createServerData$(
+    async (_, { request }) => {
+      return await getSession(request, authOpts)
+    },
+    { key: () => ['auth_user'], deferStream: false }
+  )
 }
